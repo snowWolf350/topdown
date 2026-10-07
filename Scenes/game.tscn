@@ -7,12 +7,13 @@
 
 [node name="Game" type="Node2D" unique_id=927281506]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1388797787]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1388797787]
 position = Vector2(988, 533)
+motion_mode = 1
 script = ExtResource("1_qxrlw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=188950170]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=188950170]
 shape = SubResource("RectangleShape2D_cuoye")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1666125707]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1666125707]
 texture = ExtResource("1_ebmjs")
