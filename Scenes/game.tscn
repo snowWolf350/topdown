@@ -5,6 +5,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuoye"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycag2"]
+size = Vector2(1985, 55)
+
 [node name="Game" type="Node2D" unique_id=927281506]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1388797787]
@@ -17,3 +20,11 @@ shape = SubResource("RectangleShape2D_cuoye")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1666125707]
 texture = ExtResource("1_ebmjs")
+
+[node name="wall" type="Area2D" parent="." unique_id=1733927009]
+position = Vector2(835, -80)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall" unique_id=404368603]
+position = Vector2(94.5, 17.5)
+shape = SubResource("RectangleShape2D_ycag2")
