@@ -5,23 +5,26 @@ const rotateSpeed = 20
 
 var bulletPrefab = preload("res://Scenes/bullet.tscn")
 
+@onready var gunPivot : Node2D = $GunPivot
+@onready var shootPoint : Node2D = $GunPivot/shootPoint
+
 func _process(delta: float) -> void:
-	handleRotation(delta)
+	handleRotationShooting(delta)
 
 func _physics_process(_delta: float) -> void:
 	handleInput()
 		
 
-func handleRotation(delta :float ) -> void :
+func handleRotationShooting(delta :float ) -> void :
 	var aimDir := (position - get_viewport().get_mouse_position()).normalized()
 	var aimAngle = aimDir.angle()
-	rotation = rotate_toward(rotation,aimAngle,rotateSpeed * delta)
+	gunPivot.rotation = rotate_toward(gunPivot.rotation,aimAngle,rotateSpeed * delta)
 	
 	if(Input.is_action_just_pressed("shoot")):
 		var bulletSpawned : Node2D = bulletPrefab.instantiate()
 		bulletSpawned.SetAimDir(aimDir)
-		get_node("/root").add_child(bulletSpawned)
-		bulletSpawned.position = position
+		get_tree().root.add_child(bulletSpawned)
+		bulletSpawned.global_position = shootPoint.global_position
 
 func handleInput() ->void :
 	var direction := Input.get_vector("left", "right", "up", "down")
