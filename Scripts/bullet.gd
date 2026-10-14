@@ -10,8 +10,6 @@ func SetAimDir(aimdir : Vector2) -> void :
 func _process(delta: float) -> void:
 	position -= aimDir * delta * bulletSpeed
 	
-
-
-func _on_area_entered(area: Area2D) -> void:
-	print(area.name)
+func _on_body_entered(body: Node2D) -> void:
+	print(body.name)
 	queue_free()

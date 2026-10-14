@@ -39,11 +39,11 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 12.0
+"speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycag2"]
-size = Vector2(1985, 55)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cuoye"]
+normal = Vector2(-0.012664793, -0.99991983)
 
 [node name="Game" type="Node2D" unique_id=927281506]
 
@@ -57,7 +57,7 @@ shape = SubResource("RectangleShape2D_cuoye")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1407149427]
 sprite_frames = SubResource("SpriteFrames_oh3h3")
-frame_progress = 0.11011728
+frame_progress = 0.9629042
 
 [node name="GunPivot" type="Node2D" parent="Player" unique_id=1567654233]
 
@@ -68,10 +68,9 @@ texture = ExtResource("3_wrm1d")
 [node name="shootPoint" type="Node2D" parent="Player/GunPivot" unique_id=1242209814]
 position = Vector2(-56, -3)
 
-[node name="wall" type="Area2D" parent="." unique_id=1733927009]
-position = Vector2(333, -80)
-collision_mask = 2
+[node name="wall" type="StaticBody2D" parent="." unique_id=132063950]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall" unique_id=404368603]
-scale = Vector2(0.51536196, 2.3488379)
-shape = SubResource("RectangleShape2D_ycag2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall" unique_id=2120401485]
+position = Vector2(315, -6)
+rotation = -3.1289275
+shape = SubResource("WorldBoundaryShape2D_cuoye")

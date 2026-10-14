@@ -23,7 +23,7 @@ func handleRotationShooting(delta :float ) -> void :
 	if(Input.is_action_just_pressed("shoot")):
 		var bulletSpawned : Node2D = bulletPrefab.instantiate()
 		bulletSpawned.SetAimDir(aimDir)
-		get_tree().root.add_child(bulletSpawned)
+		get_tree().current_scene.add_child(bulletSpawned)
 		bulletSpawned.global_position = shootPoint.global_position
 
 func handleInput() ->void :
